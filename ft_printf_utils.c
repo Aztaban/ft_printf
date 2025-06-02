@@ -6,7 +6,7 @@
 /*   By: mjusta <mjusta@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:45:47 by mjusta            #+#    #+#             */
-/*   Updated: 2025/06/02 11:48:40 by mjusta           ###   ########.fr       */
+/*   Updated: 2025/06/02 16:07:08 by mjusta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	ft_putstr(const char *str)
 {
 	int	count;
 
+	if (!str)
+		return (ft_putstr("(null)"));
 	count = 0;
 	while (*str)
 		count += ft_putchar(*str++);

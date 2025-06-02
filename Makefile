@@ -6,7 +6,7 @@
 #    By: mjusta <mjusta@student.42prague.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/30 10:47:16 by mjusta            #+#    #+#              #
-#    Updated: 2025/05/30 11:49:43 by mjusta           ###   ########.fr        #
+#    Updated: 2025/06/02 14:04:10 by mjusta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 AR = ar rcs
 
-SRC = ft_printf.c
+SRC = ft_printf.c ft_printf_number.c ft_printf_utils.c
 OBJ = $(SRC:.c=.o)
 
 LIBFT_DIR = ./libft

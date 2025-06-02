@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjusta <mjusta@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:45:47 by mjusta            #+#    #+#             */
-/*   Updated: 2025/05/30 16:19:27 by mjusta           ###   ########.fr       */
+/*   Updated: 2025/06/02 11:48:40 by mjusta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,25 @@ int	ft_putchar(const char c)
 int	ft_putstr(const char *str)
 {
 	int	count;
-	
+
 	count = 0;
 	while (*str)
 		count += ft_putchar(*str++);
 	return (count);
 }
 
-int ft_putnbr(int n)
+int	ft_putnbr(int n)
 {
-	unsigned int	num;
-	int				count;
+	long	num;
+	int		count;
 
 	count = 0;
-	if (n < 0)
+	num = n;
+	if (num < 0)
 	{
 		count += ft_putchar('-');
-		num = (unsigned int)(-(long)n);
+		num = -num;
 	}
-	else
-		num = (unsigned int)n;
 	if (num >= 10)
 		count += ft_putnbr(num / 10);
 	count += ft_putchar(num % 10 + '0');

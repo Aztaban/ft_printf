@@ -6,7 +6,7 @@
 /*   By: mjusta <mjusta@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 10:47:27 by mjusta            #+#    #+#             */
-/*   Updated: 2025/05/30 16:19:39 by mjusta           ###   ########.fr       */
+/*   Updated: 2025/06/02 11:51:44 by mjusta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,20 @@ static int	handle_conversion(char specifier, va_list args)
 		return (ft_putchar(va_arg(args, int)));
 	else if (specifier == 's')
 		return (ft_putstr(va_arg(args, char *)));
+	else if (specifier == 'd' || specifier == 'i')
+		return (ft_putnbr(va_arg(args, int))); 
+	else if (specifier == 'u')
+		return (ft_putunsigned(va_arg(args, int)));
 /* 	else if (specifier == "p")
 		// print void pointer in hexadecimal format
-		return ;
-	else if (specifier == "d")
-		// print decimal number (base 10)
-		return ; 
-	else if (specifier == "i")
-		// print integer (base 10)
-		return ; 
-	else if (specifier == "u")
-		// print unsigned decimal number (base 10)
-		return ; 
-	else if (specifier == "x")
-		// print number in hexadecimal(base 16) lowercase
-		return ; 
-	else if (specifier == "X")
-		// print number in hexadecimal(base 16) uppercase
-		return ; 
-	else if (specifier == "%")
-		// print percent sign
-		return ; 
- */	return (0);
+		return ;  */
+	else if (specifier == 'x')
+		return (ft_puthex(va_arg(args, int), 0)); 
+	else if (specifier == 'X')
+		return (ft_puthex(va_arg(args, int), 1));
+	else if (specifier == '%')
+		return (ft_putchar(va_arg(args, int)));
+ 	return (0);
 }
 
 int	ft_printf(const char *input, ...)
@@ -61,11 +53,11 @@ int	ft_printf(const char *input, ...)
 	return (count);
 }
 
-#include <stdio.h>
+/* #include <stdio.h>
 int main(void)
 {
-	int ft1 = ft_printf("Hello 42\n");
-	int og1 = printf("Hello 42\n");
+	int ft1 = ft_printf("Hello 42%\n");
+	int og1 = printf("Hello 42%\n");
 	printf("ft length is %i!\n", ft1);
 	printf("og length is %i!\n\n", og1);
 	
@@ -78,4 +70,24 @@ int main(void)
 	int og3 = printf("Hello 42 %s\n", "Prague");
 	printf("ft length is %i!\n", ft3);
 	printf("og length is %i!\n\n", og3);
-}
+	
+	int ft4 = ft_printf("Hello %d Prague, I like number %i\n", 42, (int)-2147483648);
+	int og4 = printf("Hello %d Prague, I like number %i\n", 42, (int)-2147483648);
+	printf("ft length is %i!\n", ft4);
+	printf("og length is %i!\n\n", og4);
+	
+	int ft5 = ft_printf("Hello %u Prague, I like number %u\n", 42u, 2147483648u);
+	int og5 = printf("Hello %u Prague, I like number %u\n", 42u, 2147483648u);
+	printf("ft length is %i!\n", ft5);
+	printf("og length is %i!\n\n", og5);
+	
+	int ft6 = ft_printf("Hello %x Prague, I like number %x\n", 42u, 3147483648u);
+	int og6 = printf("Hello %x Prague, I like number %x\n", 42u, 3147483648u);
+	printf("ft length is %i!\n", ft6);
+	printf("og length is %i!\n\n", og6);
+	
+	int ft7 = ft_printf("Hello %X Prague, I like number %X\n", 42u, 3147483648u);
+	int og7 = printf("Hello %X Prague, I like number %X\n", 42u, 3147483648u);
+	printf("ft length is %i!\n", ft7);
+	printf("og length is %i!\n\n", og7);
+} */
